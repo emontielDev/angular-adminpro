@@ -13,6 +13,7 @@ import { Graficas1Component } from './graficas1/graficas1.component';
 import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.component';
 import { PagesComponent } from './pages.component';
 import { ProgressComponent } from './progress/progress.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 // Pipes
 import { DataKeysPipe } from './graficas1/graficas1.pipe';
@@ -33,7 +34,8 @@ import { ChartsModule } from 'ng2-charts';
         IncrementadorComponent,
         PagesComponent,
         ProgressComponent,
-        DataKeysPipe
+        DataKeysPipe,
+        AccountSettingsComponent
     ],
     // Exportamos para que otros modulos puedan acceder a ellas
     exports: [
