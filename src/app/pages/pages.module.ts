@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 // Modulos Personalizados
 import { SharedModule } from '../shared/shared.module';
@@ -9,17 +10,30 @@ import { PAGES_ROUTES } from './pages.routes';
 // Componentes
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
+import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.component';
 import { PagesComponent } from './pages.component';
 import { ProgressComponent } from './progress/progress.component';
 
+// Pipes
+import { DataKeysPipe } from './graficas1/graficas1.pipe';
+
+// Temporal
+import { FormsModule } from '@angular/forms';
+import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
+
+// Externos
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
     declarations: [
         DashboardComponent,
         Graficas1Component,
+        GraficoDonaComponent,
+        IncrementadorComponent,
         PagesComponent,
-        ProgressComponent
+        ProgressComponent,
+        DataKeysPipe
     ],
     // Exportamos para que otros modulos puedan acceder a ellas
     exports: [
@@ -28,8 +42,11 @@ import { ProgressComponent } from './progress/progress.component';
         ProgressComponent
     ],
     imports: [
+        CommonModule,
         SharedModule,
-        PAGES_ROUTES
+        PAGES_ROUTES,
+        FormsModule,
+        ChartsModule
     ]
 })
 
