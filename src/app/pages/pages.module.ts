@@ -24,6 +24,8 @@ import { IncrementadorComponent } from '../components/incrementador/incrementado
 
 // Externos
 import { ChartsModule } from 'ng2-charts';
+import { PromesasComponent } from './promesas/promesas.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { ChartsModule } from 'ng2-charts';
         PagesComponent,
         ProgressComponent,
         DataKeysPipe,
-        AccountSettingsComponent
+        AccountSettingsComponent,
+        PromesasComponent,
+        RxjsComponent
     ],
     // Exportamos para que otros modulos puedan acceder a ellas
     exports: [

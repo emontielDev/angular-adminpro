@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SettingsService,
-         SidebarService,
-         SharedService
+         SharedService,
+         SidebarService
         } from './service.index';
 
 @NgModule({
