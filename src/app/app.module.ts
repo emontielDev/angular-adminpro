@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 // Rutas
@@ -26,6 +26,7 @@ import { RegisterComponent } from './login/register.component';
     APP_ROUTES,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule, // Lo requiere el html para los formularios.
     PagesModule,
     ServiceModule
   ],
