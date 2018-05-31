@@ -44,4 +44,14 @@ import { Usuario } from '../../models/usuario.model';
         return false;
         }
     }
+
+    // Regresar el token de autenticación.
+    getToken(): string {
+        return localStorage.getItem('token');
+    }
+
+    // Actualizar los datos del usuario en el browser.
+    actualizarUsuario(usuario: Usuario) {
+        localStorage.setItem('usuario', JSON.stringify(usuario));
+    }
  }

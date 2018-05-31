@@ -1,15 +1,17 @@
 // Archivo que funje como repositorio donde se ubican todos los modulos, se agregan como providers.
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginGuardGuard } from './guards/login-guard.guard';
 import { SettingsService,
          SharedService,
          SidebarService,
          UsuarioService,
-         UsuarioLocalStorage
+         UsuarioLocalStorage,
+         SubirArchivoService
         } from './service.index';
 import { HttpClient } from '@angular/common/http';
+import { MyHttpInterceptor } from './usuario/usuario.interceptor';
 
 @NgModule({
   imports: [
@@ -22,7 +24,13 @@ import { HttpClient } from '@angular/common/http';
     SharedService,
     UsuarioService,
     LoginGuardGuard,
-    UsuarioLocalStorage
+    UsuarioLocalStorage,
+    SubirArchivoService,
+    {
+      multi: true,
+      useClass: MyHttpInterceptor,
+      provide: HTTP_INTERCEPTORS
+    }
   ],
   declarations: []
 })

@@ -27,7 +27,7 @@
                         <input formControlName="confirmarContrasenia" name="confirmarContrasenia" class="form-control" type="password" required="" placeholder="Confirmar Contraseña">
                     </div>
                 </div>
-                <div class=form-group *ngIf="formularioRegistro.errors?.equals && !formularioRegistro.pristine">
+                <div class=form-group *ngIf="this.formularioRegistro.errors?.equals && !formularioRegistro.pristine">
                     <p class="text-danger">
                         Las contraseñas deben de ser igual.
                     </p>

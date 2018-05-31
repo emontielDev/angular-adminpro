@@ -12,6 +12,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
 import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.component';
 import { PagesComponent } from './pages.component';
+import { ProfileComponent } from './profile/profile.component';
 import { ProgressComponent } from './progress/progress.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
@@ -21,6 +22,8 @@ import { DataKeysPipe } from './graficas1/graficas1.pipe';
 // Temporal
 import { FormsModule } from '@angular/forms';
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
+
+import { PipesModule } from '../pipes/pipes.module';
 
 // Externos
 import { ChartsModule } from 'ng2-charts';
@@ -39,7 +42,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         DataKeysPipe,
         AccountSettingsComponent,
         PromesasComponent,
-        RxjsComponent
+        RxjsComponent,
+        ProfileComponent
     ],
     // Exportamos para que otros modulos puedan acceder a ellas
     exports: [
@@ -48,11 +52,12 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         ProgressComponent
     ],
     imports: [
+        ChartsModule,
         CommonModule,
-        SharedModule,
-        PAGES_ROUTES,
         FormsModule,
-        ChartsModule
+        PAGES_ROUTES,
+        PipesModule,
+        SharedModule
     ]
 })
 

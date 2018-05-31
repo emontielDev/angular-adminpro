@@ -29,4 +29,10 @@ export class UsuarioService {
     return this.http.post(url, usuario);
   }
 
+  actualizarUsuario (usuario: Usuario) {
+    let url = URL_SERVICIOS + 'usuario/' + usuario._id;
+
+    return this.http.put(url, {nombre: usuario.nombre, email: usuario.email });
+  }
+
 }

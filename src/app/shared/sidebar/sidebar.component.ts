@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarService, UsuarioLocalStorage } from '../../services/service.index';
 import { Router } from '@angular/router';
+import { Usuario } from '../../models/usuario.model';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,13 +10,15 @@ import { Router } from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
 
+  usuario: Usuario;
   constructor(
+    protected _router: Router,
     public _sidebar: SidebarService,
     protected _usuarioLocalStorage: UsuarioLocalStorage,
-    protected _router: Router
   ) { }
 
   ngOnInit() {
+    this.usuario = this._usuarioLocalStorage.usuario;
   }
 
   cerrarSesion() {

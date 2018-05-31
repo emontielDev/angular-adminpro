@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuarioLocalStorage } from '../../services/service.index';
 import { Router } from '@angular/router';
+import { UsuarioLocalStorage } from '../../services/service.index';
+import { Usuario } from '../../models/usuario.model';
 
 @Component({
   selector: 'app-header',
@@ -9,12 +10,15 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  usuario: Usuario;
+
   constructor(
     protected _usuarioLocalStorage: UsuarioLocalStorage,
     protected _router: Router
   ) { }
 
   ngOnInit() {
+    this.usuario = this._usuarioLocalStorage.usuario;
   }
 
   cerrarSesion() {
