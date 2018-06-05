@@ -54,4 +54,11 @@ import { Usuario } from '../../models/usuario.model';
     actualizarUsuario(usuario: Usuario) {
         localStorage.setItem('usuario', JSON.stringify(usuario));
     }
+
+    // Actualizar el perfil de usuario
+    actualizarRolUsuario(usuario: Usuario) {
+        let us: Usuario = JSON.parse(localStorage.getItem('usuario'));
+        us.role = usuario.role;
+        this.actualizarUsuario(us);
+    }
  }

@@ -12,6 +12,7 @@ import { SettingsService,
         } from './service.index';
 import { HttpClient } from '@angular/common/http';
 import { MyHttpInterceptor } from './usuario/usuario.interceptor';
+import { ModalUploadService } from '../components/modal-upload/modal-upload.service';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { MyHttpInterceptor } from './usuario/usuario.interceptor';
     LoginGuardGuard,
     UsuarioLocalStorage,
     SubirArchivoService,
+    ModalUploadService,
     {
       multi: true,
       useClass: MyHttpInterceptor,

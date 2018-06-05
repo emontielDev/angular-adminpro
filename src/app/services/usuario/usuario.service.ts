@@ -35,4 +35,26 @@ export class UsuarioService {
     return this.http.put(url, {nombre: usuario.nombre, email: usuario.email });
   }
 
+  actualizarRoleUsuario (usuario: Usuario) {
+    let url = `${URL_SERVICIOS}usuario/${usuario._id}/role`;
+
+    return this.http.put(url, {role: usuario.role});
+  }
+
+  obtenerUsuarios(offset: number = 0) {
+    let url = `${URL_SERVICIOS}usuario?offset${offset <= 0 ? '=0' : '=' + offset}`;
+
+    return this.http.get(url);
+  }
+
+  buscarUsuarios(texto: string) {
+    let url  = `${URL_SERVICIOS}busqueda/usuarios/${texto}`;
+    return this.http.get(url);
+  }
+
+  borrarUsuario(id: string) {
+    let url  = `${URL_SERVICIOS}usuario/${id}`;
+    return this.http.delete(url);
+  }
+
 }

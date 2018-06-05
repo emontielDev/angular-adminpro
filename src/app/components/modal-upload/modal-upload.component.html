@@ -1,0 +1,24 @@
+<div class="fondo-negro animated fadeIn" [ngClass]="_modalUploadService.oculto">
+    <div class="modal" style="display: block;" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal de carga de imagen</h5>
+                    <button type="button" class="close" (click)="cerrarModal()">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <img alt="Avatar" class="img-circle pointer img-150" [src]="(this.imgTemporal || 'http://localhost:3000/img/usuarios/default')" (click)="openFile()" />
+                        <input #img (change)="changeImg($event)" type="file" class="form-control-sm form-control-file oculto" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" (click)="cerrarModal()">Cerrar</button>
+                    <button type="button" class="btn btn-primary" [disabled]="!imgTemporal" (click)="subirImagen()">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

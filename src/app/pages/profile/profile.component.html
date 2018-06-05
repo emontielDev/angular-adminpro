@@ -4,13 +4,13 @@
         <div class="card">
             <div class="card-body text-center">
                 <span class="float-right" [hidden]="!usuario.google"><i class="fa fa-google-plus text-danger"></i></span>
-                <img [hidden]="this.imagenTemp" [src]="usuario.img | imagen" class="img-circle" width="150">
-                <img [hidden]="!this.imagenTemp" [src]="this.imagenTemp" class="img-circle" width="150">
+                <img [src]="usuario.img | imagen" class="img-circle img-150 pointer" (click)="openModal()">
+                <!--<img [hidden]="!this.imagenTemp" [src]="this.imagenTemp" class="img-circle" width="150">
                 <input #imagen (change)="seleccionImagen($event)" type="file" class="form-control-sm form-control-file" />
                 <div [hidden]="!this.imagenSeleccionada">
                     <button (click)="this.subirImagen()" class="btn btn-circle btn-success btn-sm"><i class="fa fa-check"></i></button>
                     <button (click)="this.cancelar()" class="btn btn-circle btn-secondary btn-sm"><i class="fa fa-times"></i></button>
-                </div>
+                </div> -->
                 <h4 class="card-title m-t-10">{{usuario.nombre}}</h4>
                 <div class="row text-center justify-content-md-center">
                     <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-people"></i> <font class="font-medium">254</font></a></div>

@@ -6,6 +6,9 @@ import { FormGroup } from '@angular/forms';
 // SweetAlert
 import * as _swal from 'sweetalert';
 import { SweetAlert } from 'sweetalert/typings/core';
+
+import { ModalUploadComponent } from '../../components/modal-upload/modal-upload.component';
+
 const swal: SweetAlert = _swal as any;
 
 @Component({
@@ -14,12 +17,12 @@ const swal: SweetAlert = _swal as any;
   styles: []
 })
 export class ProfileComponent implements OnInit {
-  @ViewChild('imagen')
-  myInputVariable: any;
+  // @ViewChild('imagen')
+  // myInputVariable: any;
 
   usuario: Usuario;
-  imagenSeleccionada: File;
-  imagenTemp: string;
+  // imagenSeleccionada: File;
+  // imagenTemp: string;
 
   constructor(
     private _usuarioLocalStorage: UsuarioLocalStorage,
@@ -33,9 +36,9 @@ export class ProfileComponent implements OnInit {
   }
 
   cancelar() {
-    this.imagenTemp = null;
-    this.imagenSeleccionada = null;
-    this.myInputVariable.nativeElement.value = '';
+    // this.imagenTemp = null;
+    // this.imagenSeleccionada = null;
+    // this.myInputVariable.nativeElement.value = '';
   }
 
   guardar(formulario: FormGroup) {
@@ -58,25 +61,35 @@ export class ProfileComponent implements OnInit {
     // console.log(formulario.value);
   }
 
-  seleccionImagen(event) {
-    let file = event.target.files[0] as File;
-    if (!file) {
-      this.imagenSeleccionada = null;
-      return;
-    }
+  openModal() {
+    // let modal = new ModalUploadComponent();
 
-    if (file.type.indexOf('image') < 0) {
-      swal('Archivo no permitido', 'El archivo seleccionado no es una imagen.', 'warning');
-      return;
-    }
-
-    this.imagenSeleccionada = file;
-
-    let fileReader = new FileReader();
-    fileReader.onload = (res) => this.imagenTemp = res.target.result;
-
-    fileReader.readAsDataURL(file);
+    // modal.open(TYPE_UPLOAD.USUARIOS)
+    // .then(res => {
+    //   console.log(res);
+    // });
   }
+  // seleccionImagen(event) {
+  //   let file = event.target.files[0] as File;
+  //   if (!file) {
+  //     this.imagenSeleccionada = null;
+  //     return;
+  //   }
+
+  //   if (file.type.indexOf('image') < 0) {
+  //     swal('Archivo no permitido', 'El archivo seleccionado no es una imagen.', 'warning');
+  //     return;
+  //   }
+
+  //   this.imagenSeleccionada = file;
+
+  //   let fileReader = new FileReader();
+  //   fileReader.onload = (res: any) => {
+  //     this.imagenTemp = res.target.result;
+  //   };
+
+  //   fileReader.readAsDataURL(file);
+  // }
 
   // vistaPrevia(file: File) {
   //   let fileReader = new FileReader();
@@ -87,15 +100,15 @@ export class ProfileComponent implements OnInit {
   //   reader.readAsDataURL(file);
   // }
 
-  subirImagen() {
-    this._subirArchivoService.subirArchivo(this.imagenSeleccionada, 'usuarios', this.usuario._id)
-    .subscribe(res => {
-      this.usuario.img = (res['usuarios'] as Usuario).img;
-      this._usuarioLocalStorage.actualizarUsuario(res['usuarios'] as Usuario);
-      this.cancelar();
-    }, error => {
-      console.log(error);
-    });
-  }
+  // subirImagen() {
+  //   this._subirArchivoService.subirArchivo(this.imagenSeleccionada, 'usuarios', this.usuario._id)
+  //   .subscribe(res => {
+  //     this.usuario.img = (res['usuarios'] as Usuario).img;
+  //     this._usuarioLocalStorage.actualizarUsuario(res['usuarios'] as Usuario);
+  //     this.cancelar();
+  //   }, error => {
+  //     console.log(error);
+  //   });
+  // }
 
 }
