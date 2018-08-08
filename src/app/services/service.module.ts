@@ -8,7 +8,9 @@ import { SettingsService,
          SidebarService,
          UsuarioService,
          UsuarioLocalStorage,
-         SubirArchivoService
+         SubirArchivoService,
+         HospitalService,
+         MedicoService
         } from './service.index';
 import { HttpClient } from '@angular/common/http';
 import { MyHttpInterceptor } from './usuario/usuario.interceptor';
@@ -28,6 +30,8 @@ import { ModalUploadService } from '../components/modal-upload/modal-upload.serv
     UsuarioLocalStorage,
     SubirArchivoService,
     ModalUploadService,
+    HospitalService,
+    MedicoService,
     {
       multi: true,
       useClass: MyHttpInterceptor,

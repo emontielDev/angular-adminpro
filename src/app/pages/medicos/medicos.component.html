@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <input #txtSearch (keyup)="this.buscarMedicos(txtSearch.value)" type="text" class="form-control" placeholder="Buscar medico...">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="this.cargando">
+    <div class="col-sm-12">
+        <div class="alert alert-warning text-center">
+            <strong>Cargando</strong>
+            <br>
+            <i class="fa fa-refresh fa-spin fa-2x"></i>
+            <br>
+            <span>Espere por favor</span>
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="!this.cargando">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Médicos registrados (<small>{{this.total}}</small>)
+                    <button class="btn waves-effect waves-light btn-rounded btn-primary float-right" [routerLink]="['/medico', 'crear']"><i class="fa fa-plus"></i> Crear médico</button>
+                </h3>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Hospital</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let medico of medicos">
+                            <td class="w70"><img [src]="medico.img | imagen: 'medico'" class="img-50 pointer" (click)="mostrarModal(medico)"></td>
+                            <td>{{medico.nombre}}</td>
+                            <!-- <td> <input type="text" [(ngModel)]="medico.nombre" class="form-control"></td> -->
+                            <td> {{medico?.hospital?.nombre}} </td>
+                            <td class="w115 text-center">
+                                <button class="btn btn-primary" [routerLink]="['/medico', medico._id]"><i class="fa fa-edit"></i></button>
+                                <button class="btn btn-danger" (click)="eliminar(medico)"><i class="fa fa-trash-o"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button (click)="this.cambiarPagina(-5)" class="btn btn-secondary">Anteriores</button>
+                <button (click)="this.cambiarPagina(5)" class="btn btn-secondary">Siguientes</button>
+            </div>
+        </div>
+    </div>
+</div>

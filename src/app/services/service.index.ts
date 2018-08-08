@@ -6,6 +6,6 @@ export { SidebarService } from './shared/sidebar.service';
 export { UsuarioService } from './usuario/usuario.service';
 export { UsuarioLocalStorage } from './usuario/usuario.storage';
 export { SubirArchivoService } from './subir-archivo/subir-archivo.service';
-
-
+export { HospitalService } from './hospital/hospital.service';
+export { MedicoService } from './medico/medico.service';
 // export { LoginGuardGuard } from './guards/login-guard.guard';
