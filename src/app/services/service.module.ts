@@ -17,6 +17,7 @@ import { SettingsService,
 import { HttpClient } from '@angular/common/http';
 import { MyHttpInterceptor } from './usuario/usuario.interceptor';
 import { ModalUploadService } from '../components/modal-upload/modal-upload.service';
+import { VerificaTokenGuard } from './guards/verifica-token.guard';
 
 @NgModule({
   imports: [
@@ -36,6 +37,7 @@ import { ModalUploadService } from '../components/modal-upload/modal-upload.serv
     HospitalService,
     MedicoService,
     BusquedaService,
+    VerificaTokenGuard,
     {
       multi: true,
       useClass: MyHttpInterceptor,

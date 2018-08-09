@@ -3,12 +3,17 @@ import { HttpClient } from '@angular/common/http';
 import { Usuario } from '../../models/usuario.model';
 
 import { URL_SERVICIOS } from '../../config/config';
+import { UsuarioLocalStorage } from './usuario.storage';
+
+import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class UsuarioService {
 
   constructor(
-    public http: HttpClient
+    public http: HttpClient,
+    private _usuarioStorage: UsuarioLocalStorage
   ) { }
 
   autenticarUsuario(usuario: Usuario, recordar: Boolean = false) {
@@ -55,6 +60,19 @@ export class UsuarioService {
   borrarUsuario(id: string) {
     let url  = `${URL_SERVICIOS}usuario/${id}`;
     return this.http.delete(url);
+  }
+
+  renovarToken() {
+    let url = `${URL_SERVICIOS}login/refresh-token`;
+
+    return this.http.post(url, {})
+    .map((res: any) => {
+      this._usuarioStorage.actualizarToken(res.token);
+      return true;
+    })
+    .catch(err => {
+      return Observable.throw(err);
+    });
   }
 
 }

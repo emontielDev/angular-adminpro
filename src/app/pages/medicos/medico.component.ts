@@ -14,13 +14,13 @@ import { ModalUploadService } from '../../components/modal-upload/modal-upload.s
 export class MedicoComponent implements OnInit {
 
   hospitales: Hospital[] = [];
-  medico: Medico = new Medico('');
+  medico: Medico = new Medico('', '', '', null, '');
   hospital: Hospital = new Hospital('', '', '');
 
   constructor(
     private _medicoService: MedicoService,
     private _hospitalService: HospitalService,
-    private _modalUploadService: ModalUploadService;
+    private _modalUploadService: ModalUploadService,
     private _router: Router,
     public _activateRoute: ActivatedRoute
   ) {

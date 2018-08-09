@@ -66,4 +66,9 @@ import { Usuario } from '../../models/usuario.model';
         us.role = usuario.role;
         this.actualizarUsuario(us);
     }
+
+    // Actualizar Token
+    actualizarToken(token: string) {
+        localStorage.setItem('token', token);
+    }
  }
