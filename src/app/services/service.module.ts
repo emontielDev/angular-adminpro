@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginGuardGuard } from './guards/login-guard.guard';
+import { AdminGuard } from './guards/admin.guard';
 import { SettingsService,
          SharedService,
          SidebarService,
@@ -10,7 +11,8 @@ import { SettingsService,
          UsuarioLocalStorage,
          SubirArchivoService,
          HospitalService,
-         MedicoService
+         MedicoService,
+         BusquedaService
         } from './service.index';
 import { HttpClient } from '@angular/common/http';
 import { MyHttpInterceptor } from './usuario/usuario.interceptor';
@@ -27,11 +29,13 @@ import { ModalUploadService } from '../components/modal-upload/modal-upload.serv
     SharedService,
     UsuarioService,
     LoginGuardGuard,
+    AdminGuard,
     UsuarioLocalStorage,
     SubirArchivoService,
     ModalUploadService,
     HospitalService,
     MedicoService,
+    BusquedaService,
     {
       multi: true,
       useClass: MyHttpInterceptor,

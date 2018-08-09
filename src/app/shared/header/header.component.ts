@@ -26,4 +26,7 @@ export class HeaderComponent implements OnInit {
     this._router.navigate(['/login']);
   }
 
+  buscar(q: string) {
+    this._router.navigate(['/busqueda', q]);
+  }
 }

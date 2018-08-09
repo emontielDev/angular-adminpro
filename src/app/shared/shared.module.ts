@@ -1,3 +1,4 @@
+import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -20,7 +21,8 @@ import { PipesModule } from '../pipes/pipes.module';
         BreadcrumbsComponent,
         HeaderComponent,
         NopagefoundComponent,
-        SidebarComponent
+        SidebarComponent,
+        ForbiddenComponent
     ],
     exports: [
         BreadcrumbsComponent,

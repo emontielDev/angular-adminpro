@@ -57,7 +57,6 @@ export class RegisterComponent implements OnInit {
 
     if (!this.formularioRegistro.value.condiciones) {
       swal('Importante', 'Debe de aceptar las condiciones', 'warning');
-      console.log('Debe de aceptar las condiciones.');
     }
 
     let usuarioEntity = new Usuario(
@@ -76,7 +75,6 @@ export class RegisterComponent implements OnInit {
         swal(resp['message'], resp['errors'], 'danger');
       }
     }, e => {
-      console.log(e);
       swal(e.error.mensaje, e.error.errors.message, 'error');
     });
 

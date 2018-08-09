@@ -8,4 +8,5 @@ export { UsuarioLocalStorage } from './usuario/usuario.storage';
 export { SubirArchivoService } from './subir-archivo/subir-archivo.service';
 export { HospitalService } from './hospital/hospital.service';
 export { MedicoService } from './medico/medico.service';
+export { BusquedaService } from './busqueda/busqueda.service';
 // export { LoginGuardGuard } from './guards/login-guard.guard';

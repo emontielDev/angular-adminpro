@@ -7,6 +7,7 @@ import { Usuario } from '../../models/usuario.model';
     public id: string;
     public token: string;
     public usuario: Usuario;
+    public menu: {} = {};
 
     constructor() {
         this.cargar();
@@ -17,10 +18,12 @@ import { Usuario } from '../../models/usuario.model';
            this.id = localStorage.getItem('id');
            this.token = localStorage.getItem('token');
            this.usuario = JSON.parse(localStorage.getItem('usuario'));
+           this.menu = JSON.parse(localStorage.getItem('menu'));
         } else {
             this.id = '';
             this.token = '';
             this.usuario = null;
+            this.menu = {};
         }
     }
 
@@ -28,12 +31,14 @@ import { Usuario } from '../../models/usuario.model';
         localStorage.removeItem('id');
         localStorage.removeItem('token');
         localStorage.removeItem('usuario');
+        localStorage.removeItem('menu');
     }
 
-    guardar(id: string, token: string, usuario: Usuario) {
+    guardar(id: string, token: string, usuario: Usuario, menu: any) {
         localStorage.setItem('id', id);
         localStorage.setItem('token', token);
         localStorage.setItem('usuario', JSON.stringify(usuario));
+        localStorage.setItem('menu', JSON.stringify(menu));
     }
 
     estaAutenticado(): Boolean {

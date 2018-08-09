@@ -4,11 +4,11 @@ import { Location } from '@angular/common';
 declare function initPlugins();
 
 @Component({
-  selector: 'app-nopagefound',
-  templateUrl: './nopagefound.component.html',
+  selector: 'app-forbidden',
+  templateUrl: './forbidden.component.html',
   styles: []
 })
-export class NopagefoundComponent implements OnInit {
+export class ForbiddenComponent implements OnInit {
 
   constructor(
     private _location: Location

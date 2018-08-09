@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
 
     this._usuarioService.autenticarUsuario(usuario, formulario.value.recuerdame)
     .subscribe(resp => {
-      this._usuarioLocalStorage.guardar(resp['usuario']['_id'], resp['token'], resp['usuario'] );
+      this._usuarioLocalStorage.guardar(resp['usuario']['_id'], resp['token'], resp['usuario'], resp['menu'] );
       // resp['usuario']['_id']
       // resp['token']
       // JSON.stringify(resp['usuario']
@@ -65,6 +65,8 @@ export class LoginComponent implements OnInit {
       // console.log(resp);
     }, e => {
       console.log(e);
+      swal('Error al iniciar', e.error.mensaje, 'error');
+      console.log('paso madre');
     });
 
     // console.log(formulario.value);
@@ -81,7 +83,7 @@ export class LoginComponent implements OnInit {
         // console.log('ESTOU DENTRO DE UMA ZONA');
         this._usuarioService.autenticarUsuarioGoogle(token)
             .subscribe(resp => {
-              this._usuarioLocalStorage.guardar(resp['usuario']['_id'], resp['token'], resp['usuario'] );
+              this._usuarioLocalStorage.guardar(resp['usuario']['_id'], resp['token'], resp['usuario'], resp['menu'] );
               this._router.navigate(['/dashboard']);
           }, e => {
           if (!e.error.ok) {
